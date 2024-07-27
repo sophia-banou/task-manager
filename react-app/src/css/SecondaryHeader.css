@@ -1,0 +1,62 @@
+.secondary-header {
+    display: flex;
+    position: fixed;
+    top: 82px;
+    margin-left: 250px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff; 
+    overflow-x: hidden;
+    width: calc(100% - 270px);
+    z-index: 900;
+};
+
+
+.toggle-sidebar,
+.add-task {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  
+.toggle-sidebar {
+    background-color: #007bff;
+    color: #fff; 
+  }
+  
+  .add-task {
+    background-color: var(--penn-blue);
+    padding: 10px 10px;
+    width: 130px;
+    height: 40px;
+    border: 1.5px solid var(--penn-blue);
+    color: #fff; 
+    font-weight: 900;
+    margin-right: 25px;
+    border-radius: 15px;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+ .add-task:hover{
+  cursor:pointer;
+  background-color: white;
+  color: var(--penn-blue);
+ }
+
+ .add-icon{
+  width: 25px;
+  height: 25px;
+ }
+
+ .add-task:hover .add-icon {
+  filter: invert(97%) sepia(100%) saturate(2000%) hue-rotate(210deg) brightness(90%) contrast(95%);
+}
+
