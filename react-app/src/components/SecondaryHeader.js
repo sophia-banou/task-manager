@@ -1,28 +1,11 @@
 import React, { useState } from 'react'
 import '../css/SecondaryHeader.css'
-import { useTaskContext } from '../TaskContext';
 import TaskPopup from "./AddPopup";
+import { useTaskContext } from '../TaskContext';
 
 const SecondaryHeader = () => {
-    const { addTask } = useTaskContext();
-    const [taskTitle, setTaskTitle] = useState('');
-    const [taskDescription, setTaskDescription] = useState('');
-
-    const handleAddTask = () => {
-        if (!taskTitle.trim()) return; // Prevent adding tasks without a title
-
-        const newTask = {
-            id: Date.now(),
-            title: taskTitle,
-            description: taskDescription,
-            completed: false
-        };
-        addTask(newTask);
-        setTaskTitle('');
-        setTaskDescription('');
-    };
-
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const { setIsSidebarOpen , isSidebarOpen} = useTaskContext();
 
     const handleOpenPopup = () => {
         setIsPopupOpen(true);
@@ -32,10 +15,15 @@ const SecondaryHeader = () => {
         setIsPopupOpen(false);
     };
 
+    const toggleSidebar = () => {
+        setIsSidebarOpen(prevState => !prevState);
+    };
+
     return (
         <div>
-        <div class="secondary-header">
-            <button style={{ opacity: 0 }} class="toggle-sidebar" onclick="openNav()">&#9776; Open Sidebar</button>
+        <div className={`secondary-header ${isSidebarOpen ? 'shifted' : ''}`}>
+            {isSidebarOpen && <img src="sidebar-close.png" className="toggle-sidebar" onClick ={toggleSidebar}/>}
+            {!isSidebarOpen && <img src="sidebar-open.png" className="toggle-sidebar" onClick ={toggleSidebar}/>}
             <button className="add-task" onClick={handleOpenPopup}>
                 Add Task
                 <img src="add.png" alt="Add Icon" className='add-icon' />

@@ -1,5 +1,5 @@
 // TaskEditPopup.js
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useTaskContext } from '../TaskContext';
 import '../css/EditPopup.css'; // Make sure this CSS file is created
 
@@ -9,19 +9,13 @@ const TaskEditPopup = ({ task, onClose }) => {
     const [description, setDescription] = useState(task.description);
     const [completed, setCompleted] = useState(task.completed);
 
-    useEffect(() => {
-        setTitle(task.title);
-        setDescription(task.description);
-        setCompleted(task.completed);
-    }, [task]);
-
     const handleDelete = () => {
-        setTasks(prevTasks => prevTasks.filter(t => t.id !== task.id));
+        setTasks(tasks => tasks.filter(t => t.id !== task.id));
         onClose(); // Close the popup after deleting
     };
 
     const handleSave = () => {
-        setTasks(prevTasks => prevTasks.map(t =>
+        setTasks(tasks => tasks.map(t =>
             t.id === task.id ? { ...t, title, description, completed } : t
         ));
         onClose(); // Close the popup after saving

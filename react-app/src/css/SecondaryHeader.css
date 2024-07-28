@@ -2,36 +2,49 @@
     display: flex;
     position: fixed;
     top: 82px;
-    margin-left: 250px;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff; 
     overflow-x: hidden;
-    width: calc(100% - 270px);
+    transition: margin-left 0.3s ease;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
     z-index: 900;
 };
 
+.secondary-header {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
 
-.toggle-sidebar,
+.secondary-header.shifted {
+  margin-left: 250px;
+  width: calc(100%-250px);
+}
+
+
 .add-task {
   padding: 10px 20px;
+  position: fixed;
   font-size: 14px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
-  
-.toggle-sidebar {
-    background-color: #007bff;
-    color: #fff; 
-  }
+
+.toggle-sidebar{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
   
   .add-task {
     background-color: var(--penn-blue);
     padding: 10px 10px;
     width: 130px;
     height: 40px;
+    right: 10px;
     border: 1.5px solid var(--penn-blue);
     color: #fff; 
     font-weight: 900;

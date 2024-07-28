@@ -3,7 +3,7 @@
   /* Fixed position */
   top: 80px;
   /* Below the main header */
-  left: 0;
+  transform: translateX(-250px);
   width: 250px;
   height: calc(100% - 80px);
   /* Full height minus the height of the main header */
@@ -27,6 +27,10 @@
   color: var(--royal-blue-web-color); /* Change text color to make it visible on the background */
 }
 
+.filter-count{
+  position: absolute;
+  right: 40px;
+}
 .filter:hover{
   background-color: rgb(229, 229, 229);
   cursor: pointer;

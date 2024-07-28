@@ -5,29 +5,30 @@ import { useTaskContext } from '../TaskContext'; // Ensure correct path
 import TaskEditPopup from './EditPopup';
 
 const TaskList = () => {
-    const { filteredTasks, toggleTaskCompletion, filter } = useTaskContext();
-    const [editingTask, setEditingTask] = useState(null);
+    const { filteredTasks, toggleTaskCompletion, tasks,filter, isSidebarOpen } = useTaskContext();
+    const [editingPopup, setEditingPopup] = useState(null);
 
     // Filter tasks based on their completion status
     const completedTasks = filteredTasks.filter(task => task.completed);
     const incompleteTasks = filteredTasks.filter(task => !task.completed);
 
+
+
     const handleEditClick = (task) => {
-        setEditingTask(task);
+        setEditingPopup(task);
     };
 
     const handleClosePopup = () => {
-        setEditingTask(null);
+        setEditingPopup(null);
     };
 
     return (
-        <div className="main-div">
+        <div className={`main-div ${isSidebarOpen ? 'shifted' : ''}`}>
             <div className="title-div">
                 <h2 className='title'>Tasks</h2>
             </div>
-            {filteredTasks.length === 0 ? (
+            {tasks.length === 0 ? (
                 <div className='no-tasks-div'>
-
                     <div className="no-tasks">
                         <div className='no-tasks-text'>
                             <span className='nt-title' style={{fontSize: '40px'}}>No Tasks Available</span>
@@ -38,10 +39,8 @@ const TaskList = () => {
                 </div>
             ) : (
                 <div className='tasks-div'>
-
-                    {/* Conditionally render the incomplete tasks section */}
                     {(filter === 'All' || filter === 'Incomplete') && (
-                        <div className="tasks-container">
+                        <div className={`tasks-container ${isSidebarOpen ? 'shifted' : ''}`}>
                             <div className="tasks-header">
                                 <h2>Incomplete Tasks</h2>
                             </div>
@@ -53,9 +52,8 @@ const TaskList = () => {
                         </div>
                     )}
 
-                    {/* Conditionally render the completed tasks section */}
                     {(filter === 'All' || filter === 'Complete') && (
-                        <div className="tasks-container">
+                        <div className={`tasks-container ${isSidebarOpen ? 'shifted' : ''}`}>
                             <div className="tasks-header">
                                 <h2>Completed Tasks</h2>
                             </div>
@@ -67,9 +65,9 @@ const TaskList = () => {
                         </div>
                     )}
                     {
-                        editingTask && (
+                        editingPopup && (
                             <TaskEditPopup
-                                task={editingTask}
+                                task={editingPopup}
                                 onClose={handleClosePopup}
                             />
                         )

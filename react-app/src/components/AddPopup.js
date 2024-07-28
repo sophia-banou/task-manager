@@ -1,35 +1,32 @@
-import React, { useState , useRef, useEffect} from 'react';
+import React, { useState} from 'react';
 import { useTaskContext } from '../TaskContext';
-import '../css/AddPopup.css'; // Make sure to create this CSS file
+import '../css/AddPopup.css'; 
 
 const TaskPopup = ({ onClose }) => {
-    const { addTask } = useTaskContext();
+    const {setTasks, tasks} = useTaskContext();
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
 
+    //Hook that adds the new task to the previous ones
+    const addTask = (task) => {
+        setTasks(tasks => [...tasks, task]);
+    };
+
     const handleAddTask = () => {
-        if (!taskTitle.trim()) return; // Prevent adding tasks without a title
+        //Prevents adding tasks without a title
+        if (!taskTitle.trim()) return; 
 
         const newTask = {
-            
             id: Date.now(),
             title: taskTitle,
             description: taskDescription,
             completed: false
         };
-        addTask(newTask);
-        setTaskTitle('');
-        setTaskDescription('');
-        onClose(); // Close the popup after adding the task
-    };
-    const titleInputRef = useRef(null);
 
-    useEffect(() => {
-        // Focus the input field when the component mounts
-        if (titleInputRef.current) {
-            titleInputRef.current.focus();
-        }
-    }, []);
+        addTask(newTask);
+        onClose(); 
+    };
+    
 
     return (
         <div className="task-popup-overlay">
@@ -44,7 +41,7 @@ const TaskPopup = ({ onClose }) => {
                         value={taskTitle}
                         onChange={(e) => setTaskTitle(e.target.value)}
                         className='input-title'
-                        ref={titleInputRef}
+                        autoFocus
                     />
                 </div>
                 <div className="popup-middle">

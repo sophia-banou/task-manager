@@ -6,7 +6,6 @@ import TaskList from './components/TaskList';
 import {TaskProvider} from './TaskContext';
 
 const App = () => {
-  const sharedValue = "this is a shared value";
   return (
     <TaskProvider>
         <Header/>
