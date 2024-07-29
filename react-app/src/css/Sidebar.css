@@ -1,21 +1,16 @@
 .sidebar {
   position: fixed;
-  /* Fixed position */
   top: 80px;
-  /* Below the main header */
   transform: translateX(-250px);
   width: 250px;
   height: calc(100% - 80px);
-  /* Full height minus the height of the main header */
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(250, 250, 255);
   border-right: 1px solid var(--border);
   transition: transform 0.3s ease;
   justify-content: center;
   display: flex;
   z-index: 900;
-  /* Ensure sidebar is above the main content */
   overflow-y: auto;
-  /* Allow vertical scrolling if needed */
 }
 
 .sidebar.open {
@@ -23,8 +18,8 @@
 }
 
 .filter.active {
-  background-color: var(--powder-blue); /* Change this to your desired active color */
-  color: var(--royal-blue-web-color); /* Change text color to make it visible on the background */
+  background-color: var(--powder-blue); 
+  color: var(--royal-blue-web-color); 
 }
 
 .filter-count{

@@ -4,16 +4,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    z-index: 2000; /* Ensure it's above other content */
+    z-index: 2000; 
 }
 
 .task-popup-content {
-    background: #fff; /* White background for the popup */
+    background: #fff; 
     border-radius: 8px;
     width: 700px;
     height: 310px;
@@ -49,12 +48,12 @@
 
 .description{
     resize:none;
-    width: 98%;
-    margin-right:10px;
+    width: 100%;
     height: 120px;
     padding: 8px;
-    vertical-align: top; /* Align text to the top */
+    vertical-align: top;
     text-align: left;
+    font-size: 15px;
     box-sizing: border-box; 
     font-family: var(--font);
     border: 1px solid var(--border);
@@ -125,7 +124,7 @@
    .add-button:disabled {
     color: var(--glaucous);
     border: 1px solid var(--powder-blue);
-    background-color: var(--powder-blue); /* Light gray background for disabled state */
-    cursor: not-allowed; /* Change cursor to indicate button is disabled */
-    opacity: 0.6; /* Make button less opaque */
+    background-color: var(--powder-blue); 
+    cursor: not-allowed; 
+    opacity: 0.6; 
 }

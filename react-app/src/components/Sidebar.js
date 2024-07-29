@@ -1,20 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import '../css/Sidebar.css'
-import {useTaskContext} from '../TaskContext';
+import {useTaskContext} from '../context/TaskContext';
 
 const SideBar = () => {
+    // Get the current filter and the state of the sidebar and tasks from context
     const { filter, setFilter, isSidebarOpen, tasks} = useTaskContext();
 
+    // Function that handles filter changes
     const handleFilterClick = (selectedFilter) => {
         setFilter(selectedFilter);
     };
 
+    // Function that initializes task counts, based on filter
     const [taskCounts, setTaskCounts] = useState({
         all: 0,
         completed: 0,
         incomplete: 0,
     });
 
+    // Change the task counts when there is a change in the tasks
     useEffect(() => {
         const allCount = tasks.length;
         const completedCount = tasks.filter(task => task.completed).length;

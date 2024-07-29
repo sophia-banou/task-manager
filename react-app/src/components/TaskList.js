@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import '../css/TaskList.css';
 import TaskListItem from './TaskListItem';
-import { useTaskContext } from '../TaskContext'; // Ensure correct path
+import { useTaskContext } from '../context/TaskContext';
 import TaskEditPopup from './EditPopup';
 
 const TaskList = () => {
+
+    // Get filteredTasks, the current filter, the function toggleTaskCompletion 
+    // and the state of the tasks and the sidebar from context
     const { filteredTasks, toggleTaskCompletion, tasks,filter, isSidebarOpen } = useTaskContext();
-    const [editingPopup, setEditingPopup] = useState(null);
+
+    // Initialize editTask, which is the task that is going to be edited
+    const [editTask, setEditTask] = useState(null);
 
     // Filter tasks based on their completion status
     const completedTasks = filteredTasks.filter(task => task.completed);
     const incompleteTasks = filteredTasks.filter(task => !task.completed);
 
 
-
+    // Function that opens the editing popup and updates the state of the editTask
     const handleEditClick = (task) => {
-        setEditingPopup(task);
+        setEditTask(task);
     };
 
+    // Function that closes the editing popup and updates the state of the editTask
     const handleClosePopup = () => {
-        setEditingPopup(null);
+        setEditTask(null);
     };
 
     return (
@@ -65,9 +71,9 @@ const TaskList = () => {
                         </div>
                     )}
                     {
-                        editingPopup && (
+                        editTask && (
                             <TaskEditPopup
-                                task={editingPopup}
+                                task={editTask}
                                 onClose={handleClosePopup}
                             />
                         )

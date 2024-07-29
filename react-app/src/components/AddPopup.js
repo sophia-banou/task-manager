@@ -1,19 +1,24 @@
 import React, { useState} from 'react';
-import { useTaskContext } from '../TaskContext';
+import { useTaskContext } from '../context/TaskContext';
 import '../css/AddPopup.css'; 
 
 const TaskPopup = ({ onClose }) => {
-    const {setTasks, tasks} = useTaskContext();
+    // Get setTasks from context
+    const {setTasks} = useTaskContext();
+
+    // State for task title and description
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
 
-    //Hook that adds the new task to the previous ones
+    // Function that adds the new task to the previous ones
     const addTask = (task) => {
         setTasks(tasks => [...tasks, task]);
     };
 
+    // Function that handles adding a new task
     const handleAddTask = () => {
-        //Prevents adding tasks without a title
+        
+        // Prevents adding tasks without a title
         if (!taskTitle.trim()) return; 
 
         const newTask = {
@@ -23,6 +28,7 @@ const TaskPopup = ({ onClose }) => {
             completed: false
         };
 
+        // Add new task and close popup
         addTask(newTask);
         onClose(); 
     };
@@ -51,7 +57,7 @@ const TaskPopup = ({ onClose }) => {
                     value={taskDescription}
                     onChange={(e) => setTaskDescription(e.target.value)}
                     className='description'
-                    maxLength="487"
+                    maxLength="360"
                 />
                 </div>
                 <div className="popup-bot">

@@ -1,26 +1,34 @@
-// TaskEditPopup.js
 import React, { useState} from 'react';
-import { useTaskContext } from '../TaskContext';
-import '../css/EditPopup.css'; // Make sure this CSS file is created
+import { useTaskContext } from '../context/TaskContext';
+import '../css/EditPopup.css'; 
 
 const TaskEditPopup = ({ task, onClose }) => {
+
+    // Get setTasks from context
     const { setTasks } = useTaskContext();
+
+    // State for managing the task's title, description, and completion status
     const [title, setTitle] = useState(task.title);
     const [description, setDescription] = useState(task.description);
     const [completed, setCompleted] = useState(task.completed);
 
+    // Function to delete the task
     const handleDelete = () => {
         setTasks(tasks => tasks.filter(t => t.id !== task.id));
-        onClose(); // Close the popup after deleting
+        // Close the popup after deleting
+        onClose(); 
     };
 
+    // Function to save the task
     const handleSave = () => {
         setTasks(tasks => tasks.map(t =>
             t.id === task.id ? { ...t, title, description, completed } : t
         ));
-        onClose(); // Close the popup after saving
+        // Close the popup after saving
+        onClose(); 
     };
 
+    // Function to handle checkbox changes
     const handleCheckboxChange = () => {
         setCompleted(prev => !prev);
     };
@@ -54,7 +62,7 @@ const TaskEditPopup = ({ task, onClose }) => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         className='description'
-                        maxLength="487"
+                        maxLength="360"
                     />
                 </div>
                 <div className="popup-bot2">

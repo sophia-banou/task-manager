@@ -1,11 +1,13 @@
 import React from 'react'
 import '../css/TaskList.css'
-import { useTaskContext } from '../TaskContext'; // Ensure correct path
+import { useTaskContext } from '../context/TaskContext';
 
 
 
 
 const TaskListItem = ({ task, onEditClick }) => {
+
+  // Get the function toggleTaskCompletion from context
     const { toggleTaskCompletion } = useTaskContext();
     return (
         <li  className={`task-item ${task.completed ? 'completed' : ''}`}  >

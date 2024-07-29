@@ -1,12 +1,8 @@
 .main-div {
-  /* Sidebar width */
   margin-top: 120px;
-  /* Height of the main header */
   z-index: 800;
   height: calc(100vh - 120px);
-  /* Full viewport height minus the height of the main header */
   overflow-y: auto;
-  /* Allow vertical scrolling if needed */
   transition: margin-left 0.3s ease;
   background-color: rgb(186, 194, 221);
 }
@@ -31,7 +27,7 @@
   height: 80px;
   overflow-x: hidden;
   background-color: #ffffff;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 .title {
@@ -40,71 +36,48 @@
 
 .tasks-div {
   display: flex;
-  /* Use flexbox layout */
   flex-direction: column;
-  /* Stack items vertically */
   gap: 20px;
-  /* Space between task containers */
   align-items: flex-start;
-  /* Align items to the start */
   overflow-y: auto;
-  /* Allow vertical scrolling if needed */
   height: 100%;
-  /* Ensure it takes full height of the parent */
   background-color: rgb(231, 233, 240);
-  /* Background color */
 }
 
 .no-tasks-div {
   display: flex;
-  /* Use flexbox layout */
   flex-direction: column;
-  /* Stack items vertically */
   gap: 20px;
-  /* Space between task containers */
   align-items: center;
   padding-top: 20px;
-  /* Align items to the start */
   overflow-y: auto;
-  /* Allow vertical scrolling if needed */
   height: 100%;
-  /* Ensure it takes full height of the parent */
   background-color: rgb(231, 233, 240);
-  /* Background color */
 }
-
-
-
-
 
 .tasks-header h2 {
   margin: 0;
   font-size: 18px;
   font-weight: 300;
   color: #333;
-  /* Darker text color for contrast */
 }
 
 .tasks-list {
   list-style-type: none;
-  /* Remove default list styling */
   padding: 0;
   margin: 0;
 }
-
 
 .task-title {
   margin-left: 60px;
   font-size: 16px;
   color: #333;
-  /* Darker text color for contrast */
 }
 
 .tasks-div {
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* No gap initially */
   align-items: flex-start;
   padding: 20px;
   background-color: rgb(225, 228, 239);
@@ -112,22 +85,18 @@
 
 .tasks-container {
   width: 1100px;
-  /* Adjust width as needed */
   background-color: transparent;
   padding: 20px;
   margin: 0;
-  /* No margin */
 }
 
 .tasks-header {
   margin: 0;
-  /* Remove margin to avoid gaps */
   padding-bottom: 10px;
-  /* Space below header */
 }
 
 .task-item {
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   background-color: white;
   border-radius: 20px;
@@ -145,39 +114,6 @@
   background-color: rgb(221, 214, 214) !important;
 }
 
-.custom-checkbox{
-  /* Add if not using autoprefixer */
-  -webkit-appearance: none;
-  appearance: none;
-  /* For iOS < 15 to remove gradient background */
-  background-color: #fff;
-  /* Not removed via appearance */
-  margin: 0;
-}
-
-.custom-checkbox {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  margin-left: 20px;
-  margin-right: 20px;
-  font: inherit;
-  color: currentColor;
-  width: 1.4em;
-  height: 1.4em;
-  border: 0.12em solid currentColor;
-  border-radius: 0.25em; 
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-}
-
-
-
-label {
-  margin-left: 10px;
-}
-
 .custom-checkbox {
   -webkit-appearance: none;
   appearance: none;
@@ -190,11 +126,10 @@ label {
   width: 1.4em;
   height: 1.4em;
   border: 0.12em solid currentColor;
-  border-radius: 0.25em; /* Adjusted to a slight rounding */
+  border-radius: 0.25em;
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
-  cursor: pointer; /* Add a pointer cursor */
 }
 
 label {
@@ -207,21 +142,18 @@ label {
   height: 0.65em;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em #fff; /* White checkmark by default */
+  box-shadow: inset 1em 1em #fff;
   transform-origin: bottom left;
-
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 .custom-checkbox:checked::before {
   transform: scale(1);
-
 }
 
-.custom-checkbox:checked{
+.custom-checkbox:checked {
   background-color: rgb(57, 194, 57);
   border-color: rgb(57, 194, 57);
-
 }
 
 .custom-checkbox:focus {
@@ -234,18 +166,18 @@ label {
   outline-offset: max(2px, 0.15em);
 }
 
-.clickable-div{
+.clickable-div {
   position: absolute;
   width: 92.7%;
   height: 100%;
-  display:flex;
+  display: flex;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   align-items: center;
   left: 80px;
 }
 
-.no-tasks{
+.no-tasks {
   margin-top: 30px;
   width: 60%;
   display: flex;
@@ -253,27 +185,26 @@ label {
   align-items: center;
 }
 
-.no-tasks-text span{
+.no-tasks-text span {
   font-family: var(--font);
   font-weight: 200;
   font-size: 40;
 }
 
-.no-tasks-text p{
+.no-tasks-text p {
   font-family: var(--font);
   font-weight: 200;
   margin: 10px;
 }
 
-.no-tasks-text{
-  display:flex;
+.no-tasks-text {
+  display: flex;
   flex-direction: column;
-
   justify-content: center;
   text-align: center;
 }
 
-.illustration{
+.illustration {
   height: 400px;
   width: 400px;
 }
